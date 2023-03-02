@@ -1,4 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+$md-iofpalette: (
+    50 : #e6f0f4,
+    100 : #c1d8e3,
+    200 : #98bfd0,
+    300 : #6ea5bd,
+    400 : #4f91af,
+    500 : #307ea1,
+    600 : #2b7699,
+    700 : #246b8f,
+    800 : #1e6185,
+    900 : #134e74,
+    A100 : #aadbff,
+    A200 : #77c5ff,
+    A400 : #44b0ff,
+    A700 : #2aa5ff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+@import '../node_modules/@angular/material/theming';
+@include mat-core();
+$my-app-primary: mat-palette($md-iofpalette);
+$my-app-accent: mat-palette($mat-pink, 500, 900, A100);
+$my-app-warn: mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
